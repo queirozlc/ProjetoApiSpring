@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 2rem;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.formUsuario {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 1024px;
+}
+
+.formUsuarioTitle {
+    text-align: center;
+}
+
+.form-control {
+    width: 800px;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.modal-footer {
+    justify-content: space-between !important;
+}
+
+.msgSuccess {
+    font-weight: 600 !important;
+    color: #198754;
+}
+
+.msgError {
+    font-weight: 600 !important;
+    color: #dc3545 !important;
+}
