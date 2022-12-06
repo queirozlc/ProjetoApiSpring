@@ -80,10 +80,6 @@ public class ApiController {
 
         List<Usuario> listaUsuarios = usuarioRepository.buscarPorNome(nome.trim().toUpperCase());
 
-        if (listaUsuarios == null || listaUsuarios.isEmpty()) {
-            return new ResponseEntity<String>("Não existe usuário cadastrado com esse nome.", HttpStatus.OK);
-        }
-
         return new ResponseEntity<List<Usuario>>(listaUsuarios, HttpStatus.OK);
     }
 

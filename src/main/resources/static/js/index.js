@@ -1,24 +1,33 @@
 function salvarUsuario() {
+    // Limpa qualquer tipo de mensagem.
+    document.querySelector(".msgModal").innerHTML = '';
+
     // Buscando variaveis da tela.
     let id = $("#id").val();
     let nome = $("#nome").val();
     let idade = $("#idade").val();
 
-    $.ajax({
-        method: "POST",
-        url: "salvaruser",
-        data: JSON.stringify({
-            id: id,
-            nome: nome,
-            idade: idade
-        }),
-        contentType: "application/json; charset=utf-8",
-        success: ((response) => {
-            $("#id").val(response.id);
-        })
-    }).fail((xhr, status, errorThrown) => {
-        alert("Erro ao salvar usuário: " + xhr.reponseText);
-    });
+    if (nome != null && nome.trim() != '' && idade != null && idade.trim() != '') {
+        $.ajax({
+            method: "POST",
+            url: "salvaruser",
+            data: JSON.stringify({
+                id: id,
+                nome: nome,
+                idade: idade
+            }),
+            contentType: "application/json; charset=utf-8",
+            success: ((response) => {
+                $("#id").val(response.id);
+                document.querySelector(".msg").innerHTML = 'Usuário cadastrado com sucesso!';
+            })
+        }).fail((xhr, status, errorThrown) => {
+            alert("Erro ao salvar usuário: " + xhr.reponseText);
+        });
+
+    } else {
+        document.querySelector(".msg").innerHTML = 'Preencha todos os campos!';
+    }
 }
 
 function pesquisarUsuario() {
@@ -78,7 +87,7 @@ function deletarUsuario(id) {
             data: "idUser=" + id,
             success: ((response) => {
                 $('#' + id).remove();
-                document.querySelector(".msgSuccess").innerHTML = response;
+                document.querySelector(".msgModal").innerHTML = "Usuário deletado com sucesso.";
             })
         }).fail((xhr, status, errorThrown) => {
             alert("Erro ao deletar usuário por id: " + xhr.reponseText);
@@ -94,8 +103,7 @@ function deletarUsuarioTela() {
         deletarUsuario(id);
         limparTela();
     } else {
-        document.querySelector(".msgSuccess").innerHTML = '';
-        document.querySelector(".msgError").innerHTML = 'Não foi informado nenhum id para remoção.';
+        document.querySelector(".msg").innerHTML = 'Não foi informado nenhum id para remoção.';
     }
 }
 
@@ -103,6 +111,8 @@ function limparTela() {
     let id = $("#id").val("");
     let nome = $("#nome").val("");
     let idade = $("#idade").val("");
+    document.querySelector(".msg").innerHTML = '';
+    document.querySelector(".msgModal").innerHTML = '';
 }
 
 // Chamando funções.

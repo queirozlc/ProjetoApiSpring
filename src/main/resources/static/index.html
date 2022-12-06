@@ -37,7 +37,7 @@
         </div>
 
         <!-- Mensagem de retorno -->
-        <h6 class="msgError"></h6>
+        <h6 class="msg"></h6>
 
         <!-- Buttons do sistema -->
         <div class="buttons-container">
@@ -71,23 +71,25 @@
                         </form>
 
                         <!-- Table com retorno dos dados -->
-                        <table class="table table-borderless mt-5" id="tabelaResultados">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Editar</th>
-                                    <th scope="col">Deletar</th>
-                                </tr>
-                            </thead>
+                        <div class="table-wrap">
+                            <table class="table table-borderless mt-5" id="tabelaResultados">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Deletar</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
+                                <tbody>
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <h6 class="msgSuccess"></h6>
+                        <h6 class="msgModal"></h6>
                         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
                     </div>
                 </div>

@@ -37,12 +37,12 @@ body {
     justify-content: space-between !important;
 }
 
-.msgSuccess {
-    font-weight: 600 !important;
-    color: #198754;
+.table-wrap {
+    height: 300px;
+    overflow: scroll;
 }
 
-.msgError {
+.msg,
+.msgModal {
     font-weight: 600 !important;
-    color: #dc3545 !important;
 }
